@@ -2,6 +2,11 @@
 
 package com.arodmar432p.a2dam_u2_pr_ctica_2_ra1_ra2_carta_m_s_alta_agustrodmar
 
+/**
+ * Enum class que representa los naipes de una baraja.
+ *
+ * @property valor El valor numérico del naipe.
+ */
 enum class Naipe(val valor: Int) {
     AS(1),
     DOS(2),
