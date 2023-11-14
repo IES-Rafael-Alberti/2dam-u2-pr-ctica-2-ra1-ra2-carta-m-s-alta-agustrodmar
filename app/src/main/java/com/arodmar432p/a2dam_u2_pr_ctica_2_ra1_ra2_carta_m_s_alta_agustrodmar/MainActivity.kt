@@ -7,11 +7,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -24,14 +27,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.arodmar432p.a2dam_u2_pr_ctica_2_ra1_ra2_carta_m_s_alta_agustrodmar.ui.theme._2damu2prctica2ra1ra2cartamsaltaagustrodmarTheme
 
-
-**
+/**
  * Representa la actividad principal de la aplicación.
  */
 class MainActivity : ComponentActivity() {
@@ -77,6 +80,14 @@ fun JuegoBlackJack() {
     Baraja.barajar()
 
     // Diseño de la interfaz de usuario
+    Box(modifier = Modifier.fillMaxSize()) {
+        Image(
+            painterResource(id = R.drawable.tapete),
+            contentDescription = "",
+            contentScale = ContentScale.FillBounds, // o alguna otra escala
+            modifier = Modifier.matchParentSize()
+        )
+    }
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -90,9 +101,13 @@ fun JuegoBlackJack() {
         }
 
         // Muestra la imagen de la carta
-        Image(painter = painterResource(id = idDrawable), contentDescription = null)
-
+        Image(
+            painter = painterResource(id = idDrawable),
+            contentDescription = null,
+            modifier = Modifier.size(350.dp)
+        )
         Spacer(modifier = Modifier.height(16.dp))
+
 
         Row {
             // Botón para obtener una carta
